@@ -5,24 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Web App</title>
     <script>
-        // Функция для получения данных Telegram Web App
+        
         const getTelegramData = () => {
             const tg = window.Telegram.WebApp;
             tg.expand();
 
-            // Выводим данные о пользователе
+            
             console.log(tg.initData);
         };
 
-        // Функция для открытия внешнего сайта
+        
         const openWebsite = () => {
             window.open("https://krasneet.github.io/sdas/", "_blank"); // Замените URL на ваш
         };
 
-        // Ждем загрузки страницы
+        
         window.onload = () => {
             getTelegramData();
         };
+
+        var WebApp = window.Telegram.WebApp;
+
+        WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`)
+        
     </script>
 </head>
 <body>
