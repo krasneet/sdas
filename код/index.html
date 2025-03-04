@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVM</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <style>
+        body {
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 0; 
+            background-color: #f0f0f0; 
+            
+        }
+
+        h1 {
+            margin-bottom: 20px; 
+        }
+
+        .image-button {
+            background-image: url('Z:/24-25 уч год/31ИС/mamyra2/DMV/катинки/1.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            width: 300px; 
+            height: 300px; 
+            border: none; 
+            cursor: pointer; 
+        }
+
+        .image-button:hover {
+            opacity: 0.8; 
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h1>DVM</h1>
+    <button class="image-button" onclick="handleClick()"></button> 
+    <script>
+        function handleClick() {
+            alert('Кнопка с изображением была нажата!');
+        }
+    </script>
+    
+    <script>
+        function openWindow() {
+            window.open('https://krasneet.github.io/sdas/', 'newWindow', 'width=600,height=400'); 
+        }
+    </script>
+
+</body>
+</html>

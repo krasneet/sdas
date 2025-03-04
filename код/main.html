@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegta Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js">
+    const getTelegramData = () => {
+            const tg = window.Telegram.WebApp;
+            tg.expand();
+
+            
+            console.log(tg.initData);
+        };
+
+        
+        const openWebsite = () => {
+            window.open("https://krasneet.github.io/sdas/", "_blank"); 
+        };
+
+        
+        window.onload = () => {
+            getTelegramData();
+        };
+    </script>
+</head>
+<body>
+    <h1>Добро пожаловать в бота!</h1>
+    <button onclick="openWebsite()">Перейти на сайт</button>
+</body>
+</html>
