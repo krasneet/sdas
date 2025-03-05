@@ -8,22 +8,26 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     
     <style>
-        body {
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            margin: 0; 
+       body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
             background-color: #f0f0f0; 
-            
+            background-image: url('Z:/24-25 уч год/31ИС/mamyra2/DMV/катинки/фон1.png'); 
+            background-size: contain; 
+            background-position: center; 
+            height: 100vh; 
         }
 
         h1 {
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
         }
 
         .image-button {
-            background-image: url('https://ltdfoto.ru/images/2025/03/05/1.png'); 
+            background-image: url('https://ltdfoto.ru/images/2025/03/05/1.th.png'); 
+            background-color: #f0f0f0;
             background-size: contain; 
             background-repeat: no-repeat; 
             width: 300px; 
@@ -35,16 +39,82 @@
         .image-button:hover {
             opacity: 0.8; 
         }
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+        .click-conter{
+            position: absolute;    
+            top: 20px;            
+            right: 20px;          
+            font-size: 18px;      
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 10px;        
+            border-radius: 5px;   
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn1 {
+            background-image: url('https://ltdfoto.ru/images/2025/03/05/1.th.png'); 
+            padding: 125px 155px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn img {
+            width: 20px;
+            height: auto; 
+            margin-right: 10px;
+        }
     </style>
     
 </head>
 
 <body>
-    <h1>DVM</h1>
-    <button class="image-button" onclick="handleClick()"></button> 
+
+    <div class="click-conter"> 
+        Клики: <span id="clickCount">0</span>
+    </div>
+
+        <h1>DVM</h1>
+
+        <div>
+            <button class="btn1" class="image-button" onclick="handleClick()"></button> 
+        </div>
+    
+
+    <div class="button-container">
+        <button class="btn">
+            <img src='https://ltdfoto.ru/images/2025/03/05/upgrade.png' alt="Upgrade">
+            UppGreat
+        </button>
+        <button class="btn">
+            <img src='https://ltdfoto.ru/images/2025/03/05/menu.png' alt="Menu">
+            Menu
+        </button>
+        <button class="btn">
+            <img src='https://ltdfoto.ru/images/2025/03/05/stats.png' alt="Stats">
+            Stats
+        </button>
+    </div>
+
     <script>
         function handleClick() {
-            alert('Кнопка с изображением была нажата!');
+            let countElement = document.getElementById('clickCount');
+            let currentCount = parseInt(countElement.textContent);
+            countElement.textContent = currentCount + 1;
         }
     </script>
     
