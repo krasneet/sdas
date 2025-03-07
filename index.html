@@ -87,21 +87,23 @@
 <body>
 
     <div class="click-conter"> 
-        Клики: <span id="clickCount">0</span>
+        Клики: <span id="clickCount" >0</span><span id="click">1</span>
     </div>
 
         <h1>DVM</h1>
 
         <div>
-            <button class="btn1" class="image-button" onclick="handleClick()"></button> 
+            <button class="btn1" class="image-button" id="incrementButton" onclick="incrementClick()"></button> 
         </div>
     
 
     <div class="button-container">
-        <button class="btn">
+        <a href="UppGreat.html">
+            <button class="btn" >
             <img src='https://ltdfoto.ru/images/2025/03/05/upgrade.png' alt="Upgrade">
             UppGreat
-        </button>
+        </button> </a>
+        
         <button class="btn">
             <img src='https://ltdfoto.ru/images/2025/03/05/menu.png' alt="Menu">
             Menu
@@ -113,11 +115,26 @@
     </div>
 
     <script>
-        function handleClick() {
-            let countElement = document.getElementById('clickCount');
-            let currentCount = parseInt(countElement.textContent);
-            countElement.textContent = currentCount + 1;
+        
+        if (!localStorage.getItem('clickCount')) {
+            localStorage.setItem('clickCount', '1');
         }
+
+        function updateCountDisplay() {
+            let countElement = document.getElementById('clickCount');
+            let currentCount = parseInt(localStorage.getItem('clickCount')) || 0;
+            countElement.textContent = currentCount; 
+        }
+
+        function incrementClick() {
+            let currentCount = parseInt(localStorage.getItem('clickCount')) || 0;
+            let currentCount1 = parseInt(localStorage.getItem('click')) || 0;
+            currentCount += currentCount1; 
+            localStorage.setItem('clickCount', currentCount);
+            updateCountDisplay(); 
+        }
+
+        updateCountDisplay();
     </script>
     
     <script>

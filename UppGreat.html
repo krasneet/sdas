@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UppGreat</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Улучшения</h1>
+    <button onclick="upgradeClick()">Купить 1000</button>
+    <a href="index.html"><button>Вернуться на главную</button></a>
+
+    <script>
+        function upgradeClick() {
+            
+            let currentCount = parseInt(localStorage.getItem('click')) || 0;
+            currentCount += 1;
+            localStorage.setItem('click', currentCount);
+            alert("+1");
+        }
+    </script>
+</body>
+
+</html>
