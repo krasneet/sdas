@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UppGreat</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Stats</title>
     <style>
         body {
             display: flex;
@@ -27,21 +25,27 @@
         }
     </style>
 </head>
-
 <body>
-    <h1>Улучшения</h1>
-    <button onclick="upgradeClick()">Улучшеть клик </button>
+    <h1>Статистика</h1>
+    <div>
+        Вы накликали DVM коинов: <span id="statsClickCount"> 0</span>
+    </div>
+
+    <div> 
+        Ваш клик стоит: <span id="statsClick"> 0 </span>
+    </div>
+
     <a href="index.html"><button>Вернуться на главную</button></a>
 
     <script>
-        function upgradeClick() {
-            
-            let currentCount = parseInt(localStorage.getItem('click')) || 0;
-            currentCount += 1;
-            localStorage.setItem('click', currentCount);
-            alert("+1");
+        window.onload = function() {
+            const clicks = localStorage.getItem('clickCount') || 0; 
+            document.getElementById('statsClickCount').innerText = ` ${clicks}`;
+
+            const clickValue = localStorage.getItem('click') || 0; 
+            document.getElementById('statsClick').innerText = clickValue;
         }
     </script>
+    
 </body>
-
 </html>
