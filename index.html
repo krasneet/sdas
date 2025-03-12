@@ -15,7 +15,7 @@
             align-items: center;
             margin: 0;
             background-color: #f0f0f0; 
-            background-image: url('https://ltdfoto.ru/images/2025/03/05/FON1.png'); 
+            background-image: url('https://ltdfoto.ru/images/2025/03/12/FONGLAVNOE.jpg'); 
             background-size: cover; 
             background-position: center; 
             height: 100vh; 
@@ -67,13 +67,13 @@
             margin-top: 20px;
         }
         .btn1 {
-            background-image: url('https://ltdfoto.ru/images/2025/03/05/1.th.png'); 
-            padding: 125px 155px;
+            padding: 5px 5px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            background-repeat: no-repeat;
         }
         .btn img {
             width: 20px;
@@ -102,7 +102,10 @@
         <h1>DVM</h1>
 
         <div>
-            <button class="btn1" class="image-button" id="incrementButton" onclick="incrementClick()"></button> 
+            <button class="btn1" class="image-button" id="incrementButton" onclick="incrementClick()" ondclick="changeImage()">
+                <img id="coinImage" src="https://ltdfoto.ru/images/2025/03/05/1.th.png" alt="Монета 1">
+            </button> 
+            
         </div>
     
 
@@ -151,11 +154,14 @@
         updateCountDisplay();
     </script>
     
-    <script>
-        function openWindow() {
-            window.open('https://krasneet.github.io/sdas/', 'newWindow', 'width=600,height=400'); 
-        }
-    </script>
+
+<script>
+    function changeImage() {
+        const coinImage = document.getElementById('coinImage');
+        coinImage.src = 'https://ltdfoto.ru/images/2025/03/12/ZOLOTO.png'; 
+    }
+    window.onload = updateCountDisplay;
+</script>
 
 </body>
 </html>
