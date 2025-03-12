@@ -14,6 +14,8 @@
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
+            background-image: url('https://ltdfoto.ru/images/2025/03/12/FONAP.jpg'); 
+            background-size: cover; 
         }
 
         button {
@@ -25,6 +27,29 @@
             cursor: pointer;
             margin-top: 20px;
         }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn img {
+            width: 20px;
+            height: auto; 
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 
@@ -32,11 +57,23 @@
     <h1>Улучшения</h1>
     <button onclick="upgradeClick()">Улучшеть клик </button>
     <div>
-        <a href="index.html"><button>Вернуться на главную</button></a>
-        <a href="stats.html"><button>Посмотреть статистику</button></a> 
-        <a href="Menu.html"><button>Меню</button></a> 
+
+        <a href="Menu.html"><button class="btn"> 
+            <img src='https://ltdfoto.ru/images/2025/03/05/menu.png' alt="Menu">
+            Menu</button>
+        </a> 
+
+        <a href ="stats.html">
+            <button class="btn">
+            <img src='https://ltdfoto.ru/images/2025/03/05/stats.png' alt="Stats">
+            Stats
+        </button>  </a>
+
     </div>
-    
+
+        <a href="index.html"><button class="btn">
+            <img src="https://ltdfoto.ru/images/2025/03/12/DOMe13592608b2c3bcc.png" alt="Glavnoe">
+             Вернуться на главную</button></a>
 
     <script>
         function upgradeClick() {

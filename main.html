@@ -1,31 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegta Web App</title>
-    <script>
-    const getTelegramData = () => {
-            const tg = window.Telegram.WebApp;
-            tg.expand();
+    <title>DVM</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f0f0f0;
+            height: 100vh;
+        }
 
-            
-            console.log(tg.initData);
-        };
+        h1 {
+            margin-bottom: 20px;
+        }
 
-        
-        const openWebsite = () => {
-            window.open("https://example.com", "_blank"); 
-        };
+        .click-conter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-        
-        window.onload = () => {
-            getTelegramData();
-        };
-    </script>
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Добро пожаловать в бота!</h1>
-    <button onclick="openWebsite()">Перейти на сайт</button>
+    <div class="click-conter">
+        Клики: <span id="clickCount">0</span>
+    </div>
+    <h1>DVM</h1>
+    <div class="button-container">
+        <a href="UppGreat.html">
+            <button class="btn">Улучшить клик на 2</button>
+        </a>
+        <button class="btn" id="incrementButton">Клик!</button>
+        <button class="btn">Меню</button>
+        <button class="btn">Статистика</button>
+    </div>
+
+    <script>
+        // Извлечение текущего количества кликов из localStorage и обновление отображения
+        function updateCountDisplay() {
+            let countElement = document.getElementById('clickCount');
+            let currentCount = parseInt(localStorage.getItem('clickCount')) || 0;
+            countElement.textContent = currentCount; // Выводим целое число
+        }
+
+        // Функция для добавления клика
+        function incrementClick() {
+            let currentCount = parseInt(localStorage.getItem('clickCount')) || 0;
+
+            // Проверяем, был ли клик улучшен
+            if (localStorage.getItem('clickUpgraded') === 'true') {
+                currentCount += 2; // Считываем за 2
+            } else {
+                currentCount += 1; // Считываем за 1
+            }
+
+            localStorage.setItem('clickCount', currentCount);
+            updateCountDisplay(); // Обновляем отображение
+        }
+
+        // Инициализация значения счетчика кликов на странице
+        updateCountDisplay();
+
+        // Привязываем обработчик клика к кнопке
+        document.getElementById('incrementButton').addEventListener('click', incrementClick);
+    </script>
 </body>
+
 </html>
