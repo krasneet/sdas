@@ -17,7 +17,6 @@
             background-color: #f0f0f0; 
             background-image: url('https://ltdfoto.ru/images/2025/03/12/FONGLAVNOE.jpg'); 
             background-size: cover; 
-            background-position: center; 
             height: 100vh; 
         }
 
@@ -26,16 +25,10 @@
         }
 
         .image-button {
-            background-image: url('https://ltdfoto.ru/images/2025/03/05/1.th.png'); 
-            background-color: #f0f0f0;
-            background-size: contain; 
-            background-repeat: no-repeat; 
-            width: 300px; 
-            height: 300px; 
             border: none; 
             cursor: pointer; 
-            touch-action: manipulation;
             outline: none;
+            background-color: transparent; 
         }
 
         .image-button:hover {
@@ -88,9 +81,16 @@
         button:active {
             transform: translateY(2px);
         }
-
+        #coinImage {
+            width: 250px;  
+            height: 250px; 
+        }
+        
+        
     </style>
     
+
+
 </head>
 
 <body>
@@ -102,7 +102,7 @@
         <h1>DVM</h1>
 
         <div>
-            <button class="btn1" class="image-button" id="incrementButton" onclick="incrementClick()" ondclick="changeImage()">
+            <button  class="image-button" id="incrementButton" onclick="incrementClick()" >
                 <img id="coinImage" src="https://ltdfoto.ru/images/2025/03/05/1.th.png" alt="Монета 1">
             </button> 
             
@@ -143,6 +143,11 @@
             countElement.textContent = currentCount; 
         }
 
+        function changeImage() {
+            
+            document.getElementById("coinImage").src = "https://ltdfoto.ru/images/2025/03/12/ZOLOTO.png";
+        }
+
         function incrementClick() {
             let currentCount = parseInt(localStorage.getItem('clickCount')) || 0;
             let currentCount1 = parseInt(localStorage.getItem('click')) || 0;
@@ -151,17 +156,16 @@
             updateCountDisplay(); 
         }
 
+        
+
+        window.onload = function() {
+        if (localStorage.getItem('changeCoin') === 'true') {
+            changeImage(); 
+        }
+        };
+
         updateCountDisplay();
     </script>
     
-
-<script>
-    function changeImage() {
-        const coinImage = document.getElementById('coinImage');
-        coinImage.src = 'https://ltdfoto.ru/images/2025/03/12/ZOLOTO.png'; 
-    }
-    window.onload = updateCountDisplay;
-</script>
-
 </body>
 </html>

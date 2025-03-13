@@ -51,14 +51,18 @@
         }
 
     </style>
+
 </head>
 
 <body>
     <h1>Улучшения</h1>
 
-    <button onclick="upgradeClick()">Улучшеть клик </button>
+    
+    <button onclick="upgradeClick()" class="btn"><img src="https://i.pinimg.com/736x/e3/72/53/e372536f2ab755a8b455abea4a8a38cc.jpg" alt="cklick1"> Улучшеть клик </button>
 
-    <button id="upgradeButton" onclick="upgradeCoin()">Поменять монетку</button>
+    <button onclick="changeCoinImage()" class="btn"><img src="https://i.pinimg.com/736x/d4/8f/b1/d48fb162c17f547c2ceb0bb36d181e27.jpg" alt="upMoney">Поменять монету</button>
+
+   
 
     <div>
 
@@ -87,15 +91,15 @@
             localStorage.setItem('click', currentCount);
             alert("+1");
         }
+
+        function changeCoinImage() {
+            localStorage.setItem('changeCoin', 'true'); 
+        }
+
     </script>
 
-    <script>
-        function upgradeCoin() {
-            // Сохраняем состояние в localStorage
-            localStorage.setItem('coinUpgraded', 'true');
-            window.opener.changeImage(); // Открывает функцию changeImage() в index.html
-        }
-    </script>
+
+
 </body>
 
 </html>
